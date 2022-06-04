@@ -44,11 +44,35 @@
                 <TextView
                     android:id="@+id/tvTitulo"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="21dp"
                     android:fontFamily="casual"
                     android:gravity="center_vertical"
                     android:text="TextView"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tProveedor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="casual"
+                    android:gravity="center_vertical"
+                    tools:text="Proveedor" />
+
+                <TextView
+                    android:id="@+id/tPrecio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="casual"
+                    android:gravity="center_vertical"
+                    tools:text="Precio" />
+
+                <TextView
+                    android:id="@+id/tEntrega"
+                    android:layout_width="131dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="casual"
+                    android:gravity="center_vertical"
+                    tools:text="Entrega" />
 
             </LinearLayout>
 

@@ -22,7 +22,7 @@ class Adaptador(context: Context, productos: List<Producto>, onItemListener: OnI
     }
 
     override fun onBindViewHolder(holder: Adaptador.ViewHolder, position: Int) {
-        holder.bindData(productos[position ])
+        holder.bindData(productos[position])
     }
 
     override fun getItemCount(): Int {
@@ -37,6 +37,9 @@ class Adaptador(context: Context, productos: List<Producto>, onItemListener: OnI
     class ViewHolder(binding: ListElementBinding, onItemListener: OnItemListener):RecyclerView.ViewHolder(binding.root), View.OnClickListener{
         private val ivThumbnail = binding.ivThumbnail
         private val tvTitulo = binding.tvTitulo
+        private val tProveedor = binding.tProveedor
+        private val tPrecio = binding.tPrecio
+        private val tEntrega = binding.tEntrega
         private val context = binding.root.context
         private val onItemListener = onItemListener
         private lateinit var producto: Producto
@@ -47,6 +50,10 @@ class Adaptador(context: Context, productos: List<Producto>, onItemListener: OnI
 
         fun bindData(item: Producto){
             tvTitulo.text = item.name
+            tProveedor.text = item.provider
+            tPrecio.text = item.price
+            tEntrega.text = item.delivery
+
             Glide.with(context)
                 .load(item.thumbnail_url)
                 .into(ivThumbnail)

@@ -13,6 +13,10 @@ class ProductoDetalles {
     @SerializedName("desc")
     var desc: String? = null
 
+    override fun toString(): String {
+        return name+imagUrl+desc
+    }
+
 }
 
 

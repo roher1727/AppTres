@@ -14,7 +14,7 @@ interface ProductosApi {
         @Url url: String?
     ): Call<List<Producto>>
 
-    @GET("cm/2022-2/product_detail.php")
+    @GET("cm/2022-2/product_detail.php?id=")
     fun getProductoDetalles(
         @Query("id") id: String?
     ): Call<ProductoDetalles>

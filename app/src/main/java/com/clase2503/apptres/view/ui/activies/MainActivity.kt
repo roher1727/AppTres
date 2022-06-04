@@ -1,5 +1,6 @@
 package com.clase2503.apptres.view.ui.activies
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -18,9 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MainActivity : AppCompatActivity(), Adaptador.OnItemListener {
 
     private val BASE_URL = "https://www.serverbpw.com/"
-
     private val LOGTAG = "LOGS"
-
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,19 +58,14 @@ class MainActivity : AppCompatActivity(), Adaptador.OnItemListener {
             }
         })
 
-        val datos = ArrayList<Producto>()
-
-        for(i in 1 until 10){
-            val  productoTmp = Producto(i.toLong(), "Titulo $i", "http algo", "Precio $i", "Proveedor $i", "Envio $i")
-            datos.add(productoTmp)
-        }
-
-
-
     }
 
     override fun onItemClick(producto: Producto) {
-        TODO("Not yet implemented")
+        Toast.makeText(this@MainActivity,"Seleccionaste ${producto.name}", Toast.LENGTH_LONG).show()
+        val intent = Intent(this,MainActivity2::class.java).also{
+            it.putExtra("prodId", "${producto.id}")
+            startActivity(it)
+        }
     }
 }
 
