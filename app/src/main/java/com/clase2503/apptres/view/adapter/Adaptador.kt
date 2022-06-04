@@ -53,9 +53,13 @@ class Adaptador(
 
         fun bindData(item: Producto){
             tvTitulo.text = item.name
-            tProveedor.text = "Provedor " + item.provider
-            tPrecio.text = "Precio " + item.price
-            tEntrega.text = "Entrega "+ item.delivery
+            tProveedor.text = "Provedor: " + item.provider
+            tPrecio.text = "Precio: $" + item.price
+            if (item.delivery != "0.00") {
+                tEntrega.text = "Precio de Entrega: $" + item.delivery
+            }else{
+                tEntrega.text = "Envío gratis"
+            }
 
             Glide.with(context)
                 .load(item.thumbnail_url)
