@@ -9,13 +9,16 @@ import com.bumptech.glide.Glide
 import com.clase2503.apptres.databinding.ListElementBinding
 import com.clase2503.apptres.model.Producto
 
-class Adaptador(context: Context, productos: List<Producto>, onItemListener: OnItemListener): RecyclerView.Adapter<Adaptador.ViewHolder>() {
+class Adaptador(
+    private val context: Context,
+    private val productos: List<Producto>,
+    onItemListener: OnItemListener
+): RecyclerView.Adapter<Adaptador.ViewHolder>() {
 
-    private val productos = productos
     private val mOnItemListener = onItemListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Adaptador.ViewHolder {
-        val layoutInflater = LayoutInflater.from(parent?.context)
+        val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ListElementBinding.inflate(layoutInflater)
 
         return ViewHolder(binding,mOnItemListener)
@@ -50,9 +53,9 @@ class Adaptador(context: Context, productos: List<Producto>, onItemListener: OnI
 
         fun bindData(item: Producto){
             tvTitulo.text = item.name
-            tProveedor.text = item.provider
-            tPrecio.text = item.price
-            tEntrega.text = item.delivery
+            tProveedor.text = "Provedor " + item.provider
+            tPrecio.text = "Precio " + item.price
+            tEntrega.text = "Entrega "+ item.delivery
 
             Glide.with(context)
                 .load(item.thumbnail_url)
