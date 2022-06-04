@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity(), Adaptador.OnItemListener {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.pbConexion.visibility = View.VISIBLE
 
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)

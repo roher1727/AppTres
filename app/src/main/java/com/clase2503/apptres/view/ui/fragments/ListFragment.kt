@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.clase2503.apptres.R
@@ -53,7 +54,8 @@ class ListFragment : Fragment(), Adaptador.OnItemListener {
                 Log.d(LOGTAG, "Respuesta del servidor: ${response.toString() }")
                 Log.d(LOGTAG, "Datos:  ${response.body().toString()}")
 
-                binding.pbConexion.visibility = View.INVISIBLE
+                binding.shimmerViewContainer.isVisible = false
+                binding.rvMenu.isVisible = true
 
                 val adaptador = Adaptador(requireContext(), response.body()!!, this@ListFragment)
 
